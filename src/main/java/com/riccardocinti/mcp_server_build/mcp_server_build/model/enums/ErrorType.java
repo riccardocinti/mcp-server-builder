@@ -1,0 +1,11 @@
+package com.riccardocinti.mcp_server_build.mcp_server_build.model.enums;
+
+public enum ErrorType {
+    PROJECT_DISCOVERY_FAILED,
+    BUILD_TOOL_DETECTION_FAILED,
+    BUILD_ENVIRONMENT_FAILED,
+    DEPENDENCY_RESOLUTION_FAILED,
+    COMPILATION_FAILED,
+    ARTIFACT_DISCOVERY_FAILED,
+    UNEXPECTED_ERROR
+}
