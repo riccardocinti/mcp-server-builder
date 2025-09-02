@@ -74,8 +74,8 @@ Analyzes and builds a software project in a specified directory.
 
 ### Using Maven
 ```bash
-git clone https://github.com/riccardocinti/mcp-server-build-project.git
-cd mcp-server-build-project
+git clone https://github.com/riccardocinti/mcp-server-builder-project.git
+cd mcp-server-builder-project
 mvn clean install
 ```
 

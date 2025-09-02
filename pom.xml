@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.riccardocinti.mcp_server_build</groupId>
-	<artifactId>mcp-server-build</artifactId>
+	<artifactId>mcp-server-builder</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>mcp-server-build</name>
+	<name>mcp-server-builder</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

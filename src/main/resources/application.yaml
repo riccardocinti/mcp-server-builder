@@ -4,7 +4,7 @@ logging:
 
 spring:
   application:
-    name: mcp-server-build
+    name: mcp-server-builder
   main:
     web-application-type: none
     banner-mode: off
