@@ -1,0 +1,16 @@
+logging:
+  level:
+    root: OFF
+
+spring:
+  application:
+    name: mcp-server-build
+  main:
+    web-application-type: none
+    banner-mode: off
+
+  ai:
+    mcp:
+      server:
+        enabled: true
+        type: SYNC
