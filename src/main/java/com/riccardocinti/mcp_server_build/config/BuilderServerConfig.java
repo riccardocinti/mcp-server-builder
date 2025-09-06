@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ConfigurationProperties(prefix = "mcp.builder")
-public class BuilderConfig {
+public class BuilderServerConfig {
 
     private long timeout;
     private int maxConnections;
