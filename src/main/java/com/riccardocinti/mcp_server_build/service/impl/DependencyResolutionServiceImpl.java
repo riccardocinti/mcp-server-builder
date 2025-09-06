@@ -5,6 +5,7 @@ import com.riccardocinti.mcp_server_build.exceptions.DependencyResolutionExcepti
 import com.riccardocinti.mcp_server_build.model.BuildEnvironment;
 import com.riccardocinti.mcp_server_build.model.BuilderConfiguration;
 import com.riccardocinti.mcp_server_build.model.DependencyResult;
+import com.riccardocinti.mcp_server_build.model.ProcessResult;
 import com.riccardocinti.mcp_server_build.service.interfaces.DependencyResolutionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -217,6 +218,4 @@ public class DependencyResolutionServiceImpl implements DependencyResolutionServ
         return System.getProperty("os.name").toLowerCase().contains("windows");
     }
 
-    private record ProcessResult(int exitCode, String output) {
-    }
 }
