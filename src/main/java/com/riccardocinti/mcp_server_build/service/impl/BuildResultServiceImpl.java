@@ -64,8 +64,13 @@ public class BuildResultServiceImpl implements BuildResultService {
     }
 
     @Override
-    public BuildResult createFailureResult(ErrorType errorType, String message, String projectPath) {
-        logger.error("Creating failure result - ErrorType: {}, Message: {}", errorType, message);
+    public BuildResult createFailureResult(ErrorType errorType, Exception exception, String projectPath) {
+        logger.error("Creating failure result - ErrorType: {}, Message: {}", errorType, exception.getMessage());
+
+        String message = exception.getMessage();
+        if (exception.getCause() != null) {
+            message += " - Caused by: " + exception.getCause().getMessage();
+        }
 
         LocalDateTime now = LocalDateTime.now();
 
@@ -78,7 +83,7 @@ public class BuildResultServiceImpl implements BuildResultService {
                 .startTime(now)
                 .endTime(now)
                 .buildDuration(0L)
-                .suggestions(generateErrorTypeSpecificSuggestions(errorType, message))
+                .suggestions(generateErrorTypeSpecificSuggestions(errorType, exception.getMessage()))
                 .build();
 
         logger.info("Build failure result created for error type: {}", errorType);

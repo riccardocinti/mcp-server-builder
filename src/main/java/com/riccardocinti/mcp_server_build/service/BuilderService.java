@@ -75,31 +75,31 @@ public class BuilderService {
 
         } catch (ProjectDiscoveryException e) {
             logger.error("Project discovery failed: {}", e.getMessage());
-            return buildResultService.createFailureResult(ErrorType.PROJECT_DISCOVERY_FAILED, e.getMessage(), projectPath);
+            return buildResultService.createFailureResult(ErrorType.PROJECT_DISCOVERY_FAILED, e, projectPath);
 
         } catch (BuilderToolDetectionException e) {
             logger.error("Build tool detection failed: {}", e.getMessage());
-            return buildResultService.createFailureResult(ErrorType.BUILD_TOOL_DETECTION_FAILED, e.getMessage(), projectPath);
+            return buildResultService.createFailureResult(ErrorType.BUILD_TOOL_DETECTION_FAILED, e, projectPath);
 
         } catch (BuildEnvironmentException e) {
             logger.error("Build environment preparation failed: {}", e.getMessage());
-            return buildResultService.createFailureResult(ErrorType.BUILD_ENVIRONMENT_FAILED, e.getMessage(), projectPath);
+            return buildResultService.createFailureResult(ErrorType.BUILD_ENVIRONMENT_FAILED, e, projectPath);
 
         } catch (DependencyResolutionException e) {
             logger.error("Dependency resolution failed: {}", e.getMessage());
-            return buildResultService.createFailureResult(ErrorType.DEPENDENCY_RESOLUTION_FAILED, e.getMessage(), projectPath);
+            return buildResultService.createFailureResult(ErrorType.DEPENDENCY_RESOLUTION_FAILED, e, projectPath);
 
         } catch (CompilationException e) {
             logger.error("Compilation failed: {}", e.getMessage());
-            return buildResultService.createFailureResult(ErrorType.COMPILATION_FAILED, e.getMessage(), projectPath);
+            return buildResultService.createFailureResult(ErrorType.COMPILATION_FAILED, e, projectPath);
 
         } catch (ArtifactDiscoveryException e) {
             logger.error("Artifact discovery failed: {}", e.getMessage());
-            return buildResultService.createFailureResult(ErrorType.ARTIFACT_DISCOVERY_FAILED, e.getMessage(), projectPath);
+            return buildResultService.createFailureResult(ErrorType.ARTIFACT_DISCOVERY_FAILED, e, projectPath);
 
         } catch (Exception e) {
             logger.error("Unexpected error during build process: {}", e.getMessage(), e);
-            return buildResultService.createFailureResult(ErrorType.UNEXPECTED_ERROR, e.getMessage(), projectPath);
+            return buildResultService.createFailureResult(ErrorType.UNEXPECTED_ERROR, e, projectPath);
         }
     }
 }

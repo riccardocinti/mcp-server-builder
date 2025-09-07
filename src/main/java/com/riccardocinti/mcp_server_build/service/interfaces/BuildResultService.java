@@ -12,6 +12,6 @@ public interface BuildResultService {
                                    CompilationResult compResult,
                                    ArtifactInfo artifactInfo);
 
-    BuildResult createFailureResult(ErrorType errorType, String message, String projectPath);
+    BuildResult createFailureResult(ErrorType errorType, Exception exception, String projectPath);
 
 }

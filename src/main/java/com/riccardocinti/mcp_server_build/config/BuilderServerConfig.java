@@ -1,15 +1,22 @@
 package com.riccardocinti.mcp_server_build.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties(prefix = "mcp.builder")
 public class BuilderServerConfig {
 
+    @Value("${mcp.builder.timeout:300000}")
     private long timeout;
+
+    @Value("${mcp.builder.max-connections:3}")
     private int maxConnections;
+
+    @Value("${mcp.builder.temp-directory:#{systemProperties['java.io.tmpdir']}/mcp-builds}")
     private String tempDirectory;
+
+    @Value("${mcp.builder.preserve-artifacts:true}")
     private boolean preserveArtifacts;
 
     public long getTimeout() {

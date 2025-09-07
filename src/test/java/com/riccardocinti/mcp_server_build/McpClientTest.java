@@ -4,6 +4,10 @@ import io.modelcontextprotocol.client.McpClient;
 import io.modelcontextprotocol.client.McpSyncClient;
 import io.modelcontextprotocol.client.transport.ServerParameters;
 import io.modelcontextprotocol.client.transport.StdioClientTransport;
+import io.modelcontextprotocol.spec.McpSchema;
+
+import java.time.Duration;
+import java.util.Map;
 
 public class McpClientTest {
 
@@ -15,7 +19,9 @@ public class McpClientTest {
                     .build();
 
             var transport = new StdioClientTransport(stdioParams);
-            client = McpClient.sync(transport).build();
+            client = McpClient.sync(transport)
+                    .requestTimeout(Duration.ofMinutes(10))
+                    .build();
 
             // Wait for initialization to complete
             client.initialize();
@@ -23,6 +29,11 @@ public class McpClientTest {
             // List and demonstrate tools
             var toolsList = client.listTools();
             System.out.println("Available Tools = " + toolsList);
+
+            McpSchema.CallToolResult result = client.callTool(new McpSchema.CallToolRequest("build_project",
+                    Map.of("projectPath", "/Users/riccardocinti/Documents/workspace/mcp-server-github")));
+
+            System.out.println(result);
 
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
