@@ -31,7 +31,7 @@ public class McpClientTest {
             System.out.println("Available Tools = " + toolsList);
 
             McpSchema.CallToolResult result = client.callTool(new McpSchema.CallToolRequest("build_project",
-                    Map.of("projectPath", "/Users/riccardocinti/Documents/workspace/mcp-server-github")));
+                    Map.of("projectPath", "")));
 
             System.out.println(result);
 
